@@ -13,8 +13,8 @@ PID::~PID() {}
 void PID::Init(double Kp, double Ki, double Kd) {
 
   // Initialize coefficients
-  this->Kp = kp;
-  this->Ki = ki;
+  this->Kp = Kp;
+  this->Ki = Ki;
   this->Kd = Kd;
 
   // Initialize Errors
@@ -34,6 +34,6 @@ void PID::UpdateError(double cte) {
 
 double PID::TotalError() {
 
-  return Kp * p_error + Kd * d_error + Ki * i_error;
+  return -Kp * p_error - Kd * d_error - Ki * i_error;
 
 }
