@@ -34,14 +34,13 @@ int main()
 
   PID pid;
   // TODO: Initialize the pid variable.
+  // Ziegler-Nichols method (Classic PID)
+  // https://en.m.wikipedia.org/wiki/Ziegler-Nichols_method
   double Ku = 0.5;
   double Tu = 100;
   double Kp = 0.60 * Ku;
   double Ki = (2.0 * Kp) / Tu;
   double Kd = (Ku * Tu) / 8;
-  //double Kp = 0.1;
-  //double Ki = 0.0;
-  //double Kd = 0.0;
   pid.Init(Kp, Ki, Kd);
 
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
