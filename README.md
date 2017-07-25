@@ -11,13 +11,13 @@ Self-Driving Car Engineer Nanodegree Program
   * D is a derivative control, which causes car to approach to lane center smoothly.
 
 * Describe how the final hyperparameters were chosen.
-1. I used the Zeigler-Nichols method (Classic PID) for parameter tuning.
-
+1. I used the Zeigler-Nichols method (Classic PID) for parameter tuning (https://en.m.wikipedia.org/wiki/Ziegler-Nichols_method).
+```
 [Zeigler-Nichols method (Classic PID)]
-  * Kp = 0.6 * Ku
-  * Ki = (2.0 * Kp) / Tu
-  * Kd = (Ku * Tu) / 8
-
+Kp = 0.6 * Ku
+Ki = (2.0 * Kp) / Tu
+Kd = (Ku * Tu) / 8
+```
 2. I set 0 to P, I, and D.
 3. I increased Ku until CTE became decreasing and found 0.5 is the minimum value.
 4. I increased Tu until car steer smoothly and found that 100 is the adequate value.
