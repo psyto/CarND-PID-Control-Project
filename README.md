@@ -19,7 +19,7 @@ Self-Driving Car Engineer Nanodegree Program
     Ki = (2.0 * Kp) / Tu
     Kd = (Ku * Tu) / 8
     ```
-2. I set 0 to P, I, and D.
+2. I set 0 to Ku and Tu.
 3. I increased Ku until CTE became decreasing and found 0.5 is the minimum value.
 4. I increased Tu until car steer smoothly and found that 100 is the adequate value.
 
