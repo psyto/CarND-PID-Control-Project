@@ -3,6 +3,25 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+## Reflection
+
+* Describe the effect each of the P, I, D components had in your implementation.
+  * P is a proportional control, which causes car to steer proportional to CTE, Cross Track Error (distance between car and lane center). This has the most observable effect on car's behavior.
+  * I is an integral control, which eliminates constant error (sum of CTE). This is required only when systematic error exists.
+  * D is a derivative control, which causes car to approach to lane center smoothly.
+
+* Describe how the final hyperparameters were chosen.
+1. I used the Zeigler-Nichols method (Classic PID) for parameter tuning.
+
+[Zeigler-Nichols method (Classic PID)]
+  * Kp = 0.6 * Ku
+  * Ki = (2.0 * Kp) / Tu
+  * Kd = (Ku * Tu) / 8
+
+2. I set 0 to P, I, and D.
+3. I increased Ku until CTE became decreasing and found 0.5 is the minimum value.
+4. I increased Tu until car steer smoothly and found that 100 is the adequate value.
+
 ## Dependencies
 
 * cmake >= 3.5
@@ -19,7 +38,7 @@ Self-Driving Car Engineer Nanodegree Program
   * Run either `./install-mac.sh` or `./install-ubuntu.sh`.
   * If you install from source, checkout to commit `e94b6e1`, i.e.
     ```
-    git clone https://github.com/uWebSockets/uWebSockets 
+    git clone https://github.com/uWebSockets/uWebSockets
     cd uWebSockets
     git checkout e94b6e1
     ```
@@ -33,7 +52,7 @@ There's an experimental patch for windows in this [PR](https://github.com/udacit
 1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
-4. Run it: `./pid`. 
+4. Run it: `./pid`.
 
 ## Editor Settings
 
